@@ -25,11 +25,11 @@ $reader->setReadDataOnly(true);
 $fp = @fopen($config, 'r'); 
 if ($fp) {
    $fileList = explode("\n", fread($fp, filesize($config)));
-   print_r($fileList);
+//    print_r($fileList);
 }
 
 foreach ($fileList as $file) {
-    if($file == '' ){
+    if($file == '' || $file == ' '){
         break;
     }
     $spreadsheet = $reader->load("../$appName/$file.xlsx");
