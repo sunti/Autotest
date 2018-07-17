@@ -3,12 +3,11 @@ require_once '../vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
-function extractSheet($testName,$estimate,$testScript){
+function extractSheet($testName,$testScript){
     $testFunc = array_shift($testScript);
     $testParam = array_shift($testScript);
     $sheetObj = new stdClass();
     $sheetObj->testName = $testName;
-    $sheetObj->estimate = $estimate;
     $sheetObj->testFunc = $testFunc;
     $sheetObj->testParam = $testParam;
     $sheetObj->testValue = $testScript;
@@ -35,9 +34,9 @@ foreach ($fileList as $file) {
     $spreadsheet = $reader->load("../$appName/$file.xlsx");
     $testList = $spreadsheet->getActiveSheet()->rangeToArray('A3:C20', NULL, TRUE, TRUE, TRUE);
     foreach ($testList as $testSheet) {
-        if($testSheet['A'] && $testSheet['B'] && $testSheet['C']){
-            $testScript = $spreadsheet->getSheetByName($testSheet['C'])->toArray();
-            array_push($data,extractSheet($testSheet['A'],$testSheet['B'],$testScript));
+        if($testSheet['A'] && $testSheet['B']){
+            $testScript = $spreadsheet->getSheetByName($testSheet['B'])->toArray();
+            array_push($data,extractSheet($testSheet['A'],$testScript));
         }
     }
 }
