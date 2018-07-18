@@ -21,7 +21,7 @@ $appName = $_GET["app"];
 $config = "../$appName/config.txt";
 $reader = new Xlsx();
 $reader->setReadDataOnly(true);
-$fp = @fopen($config, 'r'); 
+$fp = @fopen($config, 'r');
 if ($fp) {
    $fileList = explode("\n", fread($fp, filesize($config)));
 //    print_r($fileList);

@@ -1,0 +1,9 @@
+Start Test 7/18/2018, 6:52:54 PM
+A0001 PASS
+WARNING !! expected value is (บางอ้อ) but got (เชษฐ์ชยุตม์)
+A0002 PASS
+B0001 ERROR @ Column H(8) CLICK ( Item_0 , null )
+A0001 PASS
+WARNING !! expected value is (บางอ้อ) but got (เชษฐ์ชยุตม์)
+A0002 PASS
+B0001 ERROR @ Column H(8) CLICK ( Item_0 , null )
