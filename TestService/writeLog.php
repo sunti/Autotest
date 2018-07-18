@@ -1,9 +1,12 @@
 <?php
 $appName = $_GET["app"];
 $logText = $_GET["logText"];
+$fileName = $_GET["fileName"];
 $logpath = "../$appName/log/";
-$date = (new DateTime('NOW'))->format("Y-m-d");
-$logfile = $date.".txt";
+if(empty($fileName)){
+    $fileName = (new DateTime('NOW'))->format("Y-m-d");
+}
+$logfile = $fileName.".txt";
 if (!file_exists($logpath)) {
     mkdir($logpath, 0777, true);
 }
